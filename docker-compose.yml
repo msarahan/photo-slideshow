@@ -1,12 +1,17 @@
 version: '2.1'
 services:
-    photo-gallery:
-        privileged: true
-        restart: always
-        build: ./photo-gallery
-    kiosk:
-        build: ./kiosk
-        privileged: true 
-        environment: 
-            LAUNCH_URL: '"http://photo-gallery:8888/"'
-            KIOSK: '1'
+  photos:
+    # image: bhcr.io/balenablocks/photo-gallery-armv7hf
+    build: ./photo-gallery
+    privileged: true
+    restart: always
+    network_mode: host
+    environment:
+      UDEV: "on"
+  kiosk:
+    image: bhcr.io/balenablocks/browser-armv7hf
+    privileged: true
+    network_mode: host
+    environment: 
+      LAUNCH_URL: "http://localhost:8888/"
+      KIOSK: '1'
