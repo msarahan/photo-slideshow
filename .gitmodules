@@ -1,0 +1,3 @@
+[submodule "photo-gallery"]
+	path = photo-gallery
+	url = git@github.com:msarahan/photo-gallery

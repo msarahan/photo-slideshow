@@ -5,13 +5,14 @@ services:
     build: ./photo-gallery
     privileged: true
     restart: always
-    network_mode: host
-    environment:
-      UDEV: "on"
+    ports:
+      - 8888
   kiosk:
     image: bhcr.io/balenablocks/browser-armv7hf
     privileged: true
-    network_mode: host
     environment: 
-      LAUNCH_URL: "http://localhost:8888/"
+      LAUNCH_URL: "http://photos:8888/"
       KIOSK: '1'
+    ports:
+      - 5011
+      - 35173
