@@ -9,7 +9,6 @@ services:
       - 8888
   kiosk:
     image: bhcr.io/balenablocks/browser-armv7hf
-    privileged: true
     environment: 
       LAUNCH_URL: "http://photos:8888/"
       KIOSK: '1'
